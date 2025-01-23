@@ -41,6 +41,7 @@
     <!-- App js -->
     <script src="{{ url("assets/js/app.js") }}"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
 
     <footer class="footer">
         © 2024 - 2025 @lang('Helcita') <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> by</span>.

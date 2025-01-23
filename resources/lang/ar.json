@@ -93,6 +93,20 @@
     "Attachment":"المرفقات",
     "Select Patient":"اختر المريض",
     "Actions":"العمليات",
-    "Medical Records":"السجلات الطبية"
+    "Medical Records":"السجلات الطبية",
+    "Prescription":"روشتة",
+    "Helcita Prescription":"روشتة هيلسيتا",
+    "Medicine":"الدواء",
+    "Date":"التاريخ",
+    "Dosage (times per day)":"الجرعة (مرات في اليوم)",
+    "Duration (days)":"المدة (أيام)",
+    "Time of Intake":"وقت تناول الدواء",
+    "View Medical Record":"عرض السجل الطبي",
+    "Mark as Completed":"تم انتهاء الكشف ؟",
+    "Statistacs":"إحصائيات",
+    "Apponitments":"المواعيد",
+    "Update":"تعديل",
+    "Sign in to continue to Helcita.":"قم بتسجيل الدخول للمواصلة إلى هيلسيتا.",
+    "Appointment List":"قائمة المواعيد"
 
 }

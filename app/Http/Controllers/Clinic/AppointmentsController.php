@@ -49,28 +49,35 @@ class AppointmentsController extends Controller
     {
         $clinic_id = Auth::user()->clinicData->id;
 
+        // تحقق من صحة المدخلات
         $request->validate([
             'patient_id' => 'required|exists:patients,id',
             'appointment_date' => 'required|date',
             'appointment_time' => 'required|date_format:H:i',
             'price' => 'required|numeric',
+            'appointment_type' => 'required|in:checkup,consultation', // تحقق من نوع الموعد
         ]);
 
-        $appointment =Appointment::create([
+        // إنشاء الموعد
+        $appointment = Appointment::create([
             'patient_id' => $request->patient_id,
             'clinic_id' => $clinic_id,
             'appointment_date' => $request->appointment_date,
             'appointment_time' => $request->appointment_time,
             'price' => $request->price,
+            'appointment_type' => $request->appointment_type, // حفظ نوع الموعد
         ]);
 
-        $patientPhone = $appointment->patient->phone; // Assume patient has a phone field
-        $message = "Dear {$appointment->patient->name}, this is a reminder for your appointment on {$appointment->appointment_date} at {$appointment->appointment_time}. Please be on time.";
+        // إرسال رسالة WhatsApp للتذكير
+        $patientPhone = $appointment->patient->phone; // افتراض أن المريض لديه حقل الهاتف
+        $messageType = $request->appointment_type === 'checkup' ? 'Checkup' : 'Consultation';
+        $message = "Dear {$appointment->patient->name}, this is a reminder for your $messageType appointment on {$appointment->appointment_date} at {$appointment->appointment_time}. Please be on time.";
 
         $this->twilioService->sendWhatsAppMessage($patientPhone, $message);
 
         return redirect()->route('Clinic.appointments.index')->with('success', 'Appointment booked successfully');
     }
+
 
     public function show($id)
     {

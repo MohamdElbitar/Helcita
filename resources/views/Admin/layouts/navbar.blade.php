@@ -3,7 +3,7 @@
         <div class="topbar">
 
             <!-- LOGO -->
-            <div class="topbar-left">
+            {{-- <div class="topbar-left">
                 <a href="index.html" class="logo">
                     <span class="logo-light">
                             <i class="mdi mdi-camera-control"></i> @lang('Helcita')
@@ -11,6 +11,17 @@
                     <span class="logo-sm">
                             <i class="mdi mdi-camera-control"></i>
                         </span>
+                </a>
+            </div> --}}
+
+            <div class="topbar-left">
+                <a href="{{ url('/') }}" class="logo">
+                    <span class="logo-light">
+                        <img src="{{ asset('assets/images/Helcita_LOGO.png') }}" alt="Helcita Logo" style="width: 80px; height: auto;">
+                    </span>
+                    <span class="logo-sm">
+                        <img src="{{ asset('assets/images/Helcita_LOGO.png') }}" alt="Helcita Logo" style="width: 20px; height: auto;">
+                    </span>
                 </a>
             </div>
 

@@ -33,74 +33,24 @@
                     <!-- end page-title -->
 
                      <ul class="nav nav-pills nav-justified" role="tablist">
+
                         <li class="nav-item waves-effect waves-light">
-                            <a class="nav-link active" data-toggle="tab" href="#home-1" role="tab">
-                                <span class="d-none d-md-block">@lang('Apponitment')</span><span class="d-block d-md-none"><i class="mdi mdi-home-variant h5"></i></span>
+                            <a class="nav-link active" data-toggle="tab" href="#profile-1" role="tab">
+                                <span class="d-none d-md-block">@lang('Statistacs')</span><span class="d-block d-md-none"><i class="mdi mdi-account h5"></i></span>
                             </a>
                         </li>
                         <li class="nav-item waves-effect waves-light">
-                            <a class="nav-link" data-toggle="tab" href="#profile-1" role="tab">
-                                <span class="d-none d-md-block">@lang('statistacs')</span><span class="d-block d-md-none"><i class="mdi mdi-account h5"></i></span>
+                            <a class="nav-link" data-toggle="tab" href="#home-1" role="tab">
+                                <span class="d-none d-md-block">@lang('Apponitments')</span><span class="d-block d-md-none"><i class="mdi mdi-home-variant h5"></i></span>
                             </a>
                         </li>
 
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane active p-3" id="home-1" role="tabpanel">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card m-b-30">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="card m-b-30">
-                                                        <div class="card-body">
-                                            
-                                                            <div class="row">
-                                                                <!-- قسم "Created Events" -->
-                                                                <div class="col-xl-2 col-lg-3 col-md-4">
-                                                                    <h4 class="m-t-5 m-b-15 font-14">Created Events</h4>
-                                                                    <form method="post" id="add_event_form" class="m-t-5 m-b-20">
-                                                                        <input type="text" class="form-control new-event-form" placeholder="Add new event..." />
-                                                                    </form>
-                                            
-                                                                    <!-- قائمة "Draggable Events" -->
-                                                                    <div id="external-events">
-                                                                        <h4 class="m-b-15 font-14">Draggable Events</h4>
-                                                                        @foreach ($appointments as $appointment)
-                                                                            <div class="fc-event" data-id="{{ $appointment->id }}">
-                                                                                {{ $appointment->patient->name }} - {{ $appointment->scheduled_time }}
-                                                                            </div>
-                                                                        @endforeach
-                                                                    </div>
-                                            
-                                                                    <!-- checkbox -->
-                                                                    <div class="custom-control custom-checkbox mt-3">
-                                                                        <input type="checkbox" class="custom-control-input" id="drop-remove">
-                                                                        <label class="custom-control-label" for="drop-remove">Remove after drop</label>
-                                                                    </div>
-                                                                </div>
-                                            
-                                                                <!-- Calendar -->
-                                                                <div id="calendar" class="col-xl-10 col-lg-9 col-md-8"></div>
-                                            
-                                                            </div>
-                                                            <!-- end row -->
-                                            
-                                                        </div>
-                                                    </div>
-                                                </div> <!-- end col -->
-                                            </div> <!-- end row -->
-                            
-                                        </div>
-                                    </div>
-                                </div> <!-- end col -->
-                            </div> <!-- end row -->
-                            
-                        </div>
-                        <div class="tab-pane p-3" id="profile-1" role="tabpanel">
 
-                                    
+                        <div class="tab-pane active p-3" id="profile-1" role="tabpanel">
+
+
                             <div class="row">
 
                                 <div class="col-sm-6 col-xl-3">
@@ -460,10 +410,62 @@
                         </div>
                     <!-- END ROW -->
                         </div>
+                        <div class="tab-pane  p-3" id="home-1" role="tabpanel">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card m-b-30">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="card m-b-30">
+                                                        <div class="card-body">
+
+                                                            <div class="row">
+                                                                <!-- قسم "Created Events" -->
+                                                                <div class="col-xl-2 col-lg-3 col-md-4">
+                                                                    <h4 class="m-t-5 m-b-15 font-14">Created Events</h4>
+                                                                    <form method="post" id="add_event_form" class="m-t-5 m-b-20">
+                                                                        <input type="text" class="form-control new-event-form" placeholder="Add new event..." />
+                                                                    </form>
+
+                                                                    <!-- قائمة "Draggable Events" -->
+                                                                    <div id="external-events">
+                                                                        <h4 class="m-b-15 font-14">Draggable Events</h4>
+                                                                        @foreach ($appointments as $appointment)
+                                                                            <div class="fc-event" data-id="{{ $appointment->id }}">
+                                                                                {{ $appointment->patient->name }} - {{ $appointment->scheduled_time }}
+                                                                            </div>
+                                                                        @endforeach
+                                                                    </div>
+
+                                                                    <!-- checkbox -->
+                                                                    <div class="custom-control custom-checkbox mt-3">
+                                                                        <input type="checkbox" class="custom-control-input" id="drop-remove">
+                                                                        <label class="custom-control-label" for="drop-remove">Remove after drop</label>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Calendar -->
+                                                                <div id="calendar" class="col-xl-10 col-lg-9 col-md-8"></div>
+
+                                                            </div>
+                                                            <!-- end row -->
+
+                                                        </div>
+                                                    </div>
+                                                </div> <!-- end col -->
+                                            </div> <!-- end row -->
+
+                                        </div>
+                                    </div>
+                                </div> <!-- end col -->
+                            </div> <!-- end row -->
+
+                        </div>
                     </div>
 
 
-                    
+
 
                     <!-- END ROW -->
 
@@ -480,6 +482,6 @@
 
     <!-- END wrapper -->
 
-                
+
 @endsection
 

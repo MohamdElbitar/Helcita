@@ -37,6 +37,7 @@
                                 <thead>
                                     <tr>
                                         <th>@lang('Patient')</th>
+                                        <th>@lang('Type')</th> <!-- العمود الجديد -->
                                         <th>@lang('Date')</th>
                                         <th>@lang('Time')</th>
                                         <th>@lang('Price')</th>
@@ -48,12 +49,12 @@
                                     @foreach($appointments as $appointment)
                                         <tr>
                                             <td>{{ $appointment->patient->name }}</td>
+                                            <td>{{ $appointment->appointment_type == 'checkup' ? __('Checkup') : __('Consultation') }}</td> <!-- عرض نوع الموعد -->
                                             <td>{{ $appointment->appointment_date }}</td>
                                             <td>{{ $appointment->appointment_time }}</td>
                                             <td>{{ $appointment->price }} @lang('EG')</td>
                                             <td>{{ __($appointment->status) }}</td>
                                             <td>
-                                                
                                                 <!-- Add button for changing status to 'Completed' -->
                                                 @if($appointment->status !== 'checked')
                                                     <form action="{{ route('Clinic.appointments.complete', $appointment->id) }}" method="POST" style="display: inline-block;">
@@ -69,8 +70,6 @@
                                                 @else
                                                     <span class="badge badge-success">@lang('checked')</span>
                                                 @endif
-                                            
-
                                             </td>
                                         </tr>
                                     @endforeach
@@ -79,7 +78,7 @@
 
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
 
         </div>

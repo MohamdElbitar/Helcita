@@ -16,7 +16,13 @@
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
 
     </head>
-
+<style>
+    .logo-img {
+    width: 100%; /* Make the logo responsive */
+    max-width: 150px; /* Set a maximum width */
+    height: auto; /* Maintain aspect ratio */
+}
+</style>
     <body>
 
 <div class="accountbg"></div>
@@ -28,9 +34,11 @@
     <div class="card card-pages shadow-none">
         <div class="card-body">
             <div class="text-center m-t-0 m-b-15">
-                <a href="{{ url('/') }}" class="logo logo-admin"><img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="24"></a>
+                <a href="{{ url('/') }}" class="logo logo-admin">
+                    <img src="{{ asset('assets/images/Helcita_LOGO.png') }}" alt="Helcita Logo" class="logo-img">
+                </a>
             </div>
-            <h5 class="font-18 text-center">Sign in to continue to Helcita.</h5>
+            <h5 class="font-18 text-center">@lang('Sign in to continue to Helcita.')</h5>
 
             <form method="POST" action="{{ route('login') }}" class="form-horizontal m-t-30">
                 @csrf
